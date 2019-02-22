@@ -14,10 +14,33 @@ To configure the storage tiering capability the rule engine plugin must be added
 ```
 "rule_engines": [
     {
-         "instance_name": "irods_rule_engine_plugin-storage_tiering-instance",
-         "plugin_name": "irods_rule_engine_plugin-storage_tiering",
-         "plugin_specific_configuration": {
-         }
+        "instance_name": "irods-rule-engine-plugin-storage-tiering-instance", 
+        "plugin_name": "irods-rule-engine-plugin-storage-tiering", 
+        "plugin_specific_configuration": {}
+    }, 
+    {    
+        "instance_name": "irods-rule-engine-plugin-data-verification-instance",
+        "plugin_name": "irods-rule-engine-plugin-data-verification",
+        "plugin_specific_configuration": {
+        }    
+    }, 
+    {    
+        "instance_name": "irods-rule-engine-plugin-data-replication-instance",
+        "plugin_name": "irods-rule-engine-plugin-data-replication",
+        "plugin_specific_configuration": {
+        }    
+    },
+    {    
+        "instance_name": "irods-rule-engine-plugin-data-movement-instance",
+        "plugin_name": "irods-rule-engine-plugin-data-movement",
+        "plugin_specific_configuration": {
+        }    
+    },
+    {    
+        "instance_name": "irods-rule-engine-plugin-apply-access-time-instance",
+        "plugin_name": "irods-rule-engine-plugin-apply-access-time",
+        "plugin_specific_configuration": {
+        }    
     },
     {    
         "instance_name": "irods_rule_engine_plugin-irods_rule_language-instance",
