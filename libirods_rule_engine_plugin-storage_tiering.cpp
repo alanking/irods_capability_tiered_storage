@@ -237,6 +237,7 @@ irods::error exec_rule_text(
     return SUCCESS();
 } // exec_rule_text
 
+#include "irods_query.hpp"
 irods::error exec_rule_expression(
     irods::default_re_ctx&,
     const std::string&     _rule_text,
@@ -254,6 +255,8 @@ irods::error exec_rule_expression(
                 return err;
             }
 
+            irods::query qobj{rei->rsComm,
+                std::string("SELECT ZONE_ID WHERE ZONE_NAME = 'tempZone'")};
             try {
                 irods::storage_tiering st{rei, plugin_instance_name};
                 for(const auto& group : rule_obj["storage-tier-groups"]) {

@@ -390,7 +390,7 @@ namespace irods {
                         boost::format("SELECT META_RESC_ATTR_UNITS, RESC_NAME WHERE META_RESC_ATTR_VALUE = '%s' AND META_RESC_ATTR_NAME = '%s'") %
                         _group %
                         config_.group_attribute)};
-            query qobj{comm_, query_str};
+            query qobj{rei_->rsComm, query_str};
             for(const auto& g : qobj) {
                 groups[g[0]] = g[1];
             }
