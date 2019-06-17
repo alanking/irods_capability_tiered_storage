@@ -69,7 +69,7 @@ message(STATUS "TGR - IRODS_CPACK_GENERATOR [${IRODS_CPACK_GENERATOR}]")
 # prepare CPACK_DEBIAN_PACKAGE_VERSION
 if (CPACK_GENERATOR STREQUAL "DEB")
   if (NOT CPACK_DEBIAN_PACKAGE_VERSION)
-    set(CPACK_DEBIAN_PACKAGE_VERSION ${IRODS_VERSION} CACHE STRING "Version string used by .deb packages." FORCE)
+    set(CPACK_DEBIAN_PACKAGE_VERSION ${IRODS_PLUGIN_VERSION} CACHE STRING "Version string used by .deb packages." FORCE)
     message(STATUS "Setting unspecified CPACK_DEBIAN_PACKAGE_VERSION to '${CPACK_DEBIAN_PACKAGE_VERSION}'. This is the correct setting for normal builds.")
   endif()
 endif()
