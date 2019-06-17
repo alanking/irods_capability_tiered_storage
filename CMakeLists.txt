@@ -94,12 +94,12 @@ include(${CMAKE_SOURCE_DIR}/irods_detection.cmake)
 set(CPACK_PACKAGE_NAME ${PROJECT_NAME_HYPHENS})
 set(CPACK_PACKAGE_FILE_NAME ${PROJECT_NAME_HYPHENS})
 
-#include(${CMAKE_SOURCE_DIR}/unified_storage_tiering.cmake)
+include(${CMAKE_SOURCE_DIR}/unified_storage_tiering.cmake)
 include(${CMAKE_SOURCE_DIR}/storage_tiering.cmake)
 include(${CMAKE_SOURCE_DIR}/apply_access_time.cmake)
-#include(${CMAKE_SOURCE_DIR}/data_movement.cmake)
-#include(${CMAKE_SOURCE_DIR}/data_replication.cmake)
-#include(${CMAKE_SOURCE_DIR}/data_verification.cmake)
+include(${CMAKE_SOURCE_DIR}/data_movement.cmake)
+include(${CMAKE_SOURCE_DIR}/data_replication.cmake)
+include(${CMAKE_SOURCE_DIR}/data_verification.cmake)
 
 include(CPack)
 
