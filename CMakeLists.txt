@@ -87,7 +87,7 @@ set(CPACK_RPM_PACKAGE_AUTOPROV 0)
 
 set(CPACK_ARCHIVE_COMPONENT_INSTALL ON)
 
-include(${CMAKE_SOURCE_DIR}/irods_detection.cmake)
+include(${CMAKE_SOURCE_DIR}/irods_plugin_common.cmake)
 
 # CPACK names component package files as "${CPACK_PACKAGE_FILE_NAME}-${COMPONENT_NAME}"
 # CPackDeb TO_UPPERs all the component names when checking the ${CPACK_DEBIAN_<COMPONENT>...} variables
