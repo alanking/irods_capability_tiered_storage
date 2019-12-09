@@ -502,6 +502,10 @@ irods::error exec_rule_expression(
                     rei->rsComm->clientUser.userName,
                     user_name.c_str(),
                     NAME_LEN);
+                rstrcpy(
+                    rei->rsComm->proxyUser.userName,
+                    user_name.c_str(),
+                    NAME_LEN);
 
                 apply_data_movement_policy(
                     rei,

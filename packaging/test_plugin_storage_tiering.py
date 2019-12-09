@@ -647,6 +647,9 @@ class TestStorageTieringPlugin(ResourceBase, unittest.TestCase):
             zone_name = IrodsConfig().client_environment['irods_zone_name']
             with session.make_session_for_existing_admin() as admin_session:
                 with session.make_session_for_existing_user('alice', 'apass', lib.get_hostname(), zone_name) as alice_session:
+                    os.environ['spLogLevel'] = str(11)
+                    os.environ['spLogSql'] = str(1)
+
                     filename = 'test_put_file'
                     lib.create_local_testfile(filename)
                     alice_session.assert_icommand('iput -R rnd0 ' + filename)
