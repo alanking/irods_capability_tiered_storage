@@ -13,14 +13,11 @@ def install_cmake_and_add_to_front_of_path():
     os.environ['PATH'] = '/opt/irods-externals/cmake3.11.4-0/bin' + os.pathsep + os.environ['PATH']
 
 def get_build_prerequisites_all():
-    return ["irods-externals-avropre190cpp17-0",
-            "irods-externals-boost1.67.0-0",
-            "irods-externals-clang-runtime6.0-0",
-            "irods-externals-clang6.0-0",
-            'irods-externals-cppzmq4.1-0',
-            "irods-externals-json3.1.2-0",
-            'irods-externals-libarchive3.1.2-0',
-            "irods-externals-zeromq4-14.1.6-0"]
+    return ['irods-externals-boost1.67.0-0',
+            'irods-externals-clang-runtime6.0-0',
+            'irods-externals-clang6.0-0',
+            'irods-externals-json3.1.2-0',
+            'irods-externals-libarchive3.3.2-0']
 
 def get_build_prerequisites_apt():
     return ['libcurl4-gnutls-dev', 'make', 'libssl-dev', 'gcc'] + get_build_prerequisites_all()
