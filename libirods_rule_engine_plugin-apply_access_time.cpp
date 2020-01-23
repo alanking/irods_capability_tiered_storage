@@ -115,7 +115,7 @@ irods::error start(
     irods::default_re_ctx&,
     const std::string& _instance_name ) {
     plugin_instance_name = _instance_name;
-    RuleExistsHelper::Instance()->registerRuleRegex("irods_policy_apply_access_time");
+    RuleExistsHelper::Instance()->registerRuleRegex("pep_*");
     return SUCCESS();
 }
 
@@ -129,7 +129,7 @@ irods::error rule_exists(
     irods::default_re_ctx&,
     const std::string& _rn,
     bool&              _ret) {
-    _ret = "irods_policy_apply_access_time" == _rn;
+    _ret = _rn.find("pep_*") != std::string::npos;
     return SUCCESS();
 }
 
@@ -142,34 +142,8 @@ irods::error exec_rule(
     const std::string&     _rn,
     std::list<boost::any>& _args,
     irods::callback        _eff_hdlr) {
-    ruleExecInfo_t* rei{};
-    const auto err = _eff_hdlr("unsafe_ms_ctx", &rei);
-    if(!err.ok()) {
-        return err;
-    }
-
-    try {
-        apply_access_time_policy(rei->rsComm, _args);
-    }
-    catch(const  std::invalid_argument& _e) {
-        irods::log(LOG_ERROR, _e.what());
-        return ERROR(
-                   SYS_NOT_SUPPORTED,
-                   _e.what());
-    }
-    catch(const boost::bad_any_cast& _e) {
-        irods::log(LOG_ERROR, _e.what());
-        return ERROR(
-                   SYS_NOT_SUPPORTED,
-                   _e.what());
-    }
-    catch(const irods::exception& _e) {
-        irods::log(_e);
-        return irods::error(_e);
-    }
-
-    return err;
-
+    rodsLog(LOG_NOTICE, "[%s:%d] - rule name:[%s]", __FUNCTION__, __LINE__, _rn.c_str());
+    return CODE(RULE_ENGINE_CONTINUE);
 } // exec_rule
 
 irods::error exec_rule_text(
